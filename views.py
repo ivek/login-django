@@ -11,6 +11,8 @@ def user_add(request):
 
 
 def login_user(request):
+    if request.user.is_authenticated:
+         return redirect('users_add')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -34,6 +36,9 @@ def logout_user(request):
 
 
 def register_user(request):
+    if request.user.is_authenticated:
+         return redirect('users_add')
+
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         new_user = form.save()
