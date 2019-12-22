@@ -2,5 +2,10 @@
 {%load static%}
 {% block content %}
     <title>ecommerce Xalapa</title>
-     
+    <div class="col">
+          {%include "products/snippets/search.html" %}
+        {%include "products/snippets/list.html" %}
+    </div>
+    
+
 {%endblock content%}
